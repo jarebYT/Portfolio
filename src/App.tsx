@@ -3,7 +3,6 @@ import { Github, Linkedin, Mail, ExternalLink, Menu, X, ChevronDown, MapPin, Cal
 
 // Components
 import ShinyText from "./components/ShinyText";
-import DarkVeil from './components/DarkVeil';
 import Plasma from './components/Plasma';
 
 const App = () => {
@@ -47,7 +46,7 @@ const App = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-gray-800">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0">
@@ -99,24 +98,23 @@ const App = () => {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center px-4 pt-16">
+      <section id="home" className="relative min-h-screen flex items-center justify-center px-4 pt-16">
         <Plasma />
-        <div style={{ width: '100%', height: '500px', position: 'relative' }}>
 
-          <div className="text-center max-w-4xl mx-auto relative z-10">
-            <div className="inline-block px-4 py-2 bg-gray-900 rounded-full border border-gray-700 mb-8">
-              <span className="text-gray-300 text-sm font-medium">👋 Hello, I'm Alexandre</span>
-            </div>
+        {/* Contenu centré */}
+        <div className="text-center max-w-4xl mx-auto relative z-10">
+          <div className="inline-block px-4 py-2 bg-gray-900 rounded-full border border-gray-700 mb-8">
+            <span className="text-gray-300 text-sm font-medium">👋 Hello, I'm Alexandre</span>
+          </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-              Welcome to my Portfolio !
-            </h1>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+            Welcome to my Portfolio !
+          </h1>
 
           <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
             Crafting beautiful digital experiences with modern technologies and clean, efficient code.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={() => scrollToSection('projects')}
@@ -132,12 +130,14 @@ const App = () => {
             </button>
           </div>
         </div>
-        
-        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 animate-bounce">
+
+        {/* Flèche en bas */}
+        <div className="absolute bottom-4 left-0 right-0 flex justify-center animate-bounce">
           <ChevronDown className="text-gray-400" size={32} />
         </div>
-        </div>
       </section>
+
+
 
       {/* About Section */}
       <section id="about" className="py-20 px-4">

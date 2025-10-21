@@ -90,9 +90,9 @@ void main() {
 
 export const Plasma: React.FC<PlasmaProps> = ({
   color = '#324773',
-  speed = 1,
+  speed = 0.5,
   direction = 'forward',
-  scale = 1,
+  scale = 0.4,
   opacity = 1,
   mouseInteractive = false
 }) => {
