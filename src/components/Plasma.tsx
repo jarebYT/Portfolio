@@ -111,7 +111,7 @@ export const Plasma: React.FC<PlasmaProps> = ({
       webgl: 2,
       alpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      dpr: 0.5,
     });
     const gl = renderer.gl;
     const canvas = gl.canvas as HTMLCanvasElement;
