@@ -13,7 +13,7 @@ const App = () => {
       title: "Ascendance",
       description: "2D platformer/Boss Rush game with unique mechanics and challenging levels.",
       tech: ["Unity", "C#", "Aseprite", "Photoshop"],
-      image: "/img/ascendance.png",
+      image: "./img/ascendance.png",
       github: "https://github.com/jarebYT/Ascendance",
       live: "https://github.com/jarebYT/Ascendance/releases/tag/release"
     },
@@ -21,7 +21,7 @@ const App = () => {
       title: "Pong Panic VR",
       description: "Virtual Reality pong game with multiplayer support and immersive graphics.",
       tech: ["Unity", "C#", "Blender", "Oculus SDK"],
-      image: "/img/pongpanic.png",
+      image: "./img/pongpanic.png",
       github: "https://github.com/jarebYT/Pong-Panic-VR",
       live: "https://github.com/jarebYT/Pong-Panic-VR"
     },
@@ -29,7 +29,7 @@ const App = () => {
       title: "Fromage Clicker",
       description: "Beautiful cheese-themed clicker game with interactive UI and engaging gameplay.",
       tech: ["HTML", "CSS", "JavaScript"],
-      image: "/img/fromageclicker.png",
+      image: "./img/fromageclicker.png",
       github: "https://github.com/jarebYT/Fromage-Clicker",
       live: "https://github.com/jarebYT/Fromage-Clicker"
     }
@@ -277,9 +277,9 @@ const App = () => {
                       <Award className="text-black" size={20} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-white mb-2">Technical Support</h4>
-                      <p className="text-gray-300 mb-2">Bump Géoservices • 2024 - Present</p>
-                      <p className="text-gray-400 text-sm">Providing technical support and troubleshooting with location-tracking devices used for vehicle fleet management and personnel monitoring.</p>
+                      <h4 className="text-lg font-semibold text-white mb-2">Self-Taught Full Stack Developer</h4>
+                      <p className="text-gray-300 mb-2">Self-Taught • 2021 - Present</p>
+                      <p className="text-gray-400 text-sm">Built and maintained full-stack applications from concept to deployment.</p>
                     </div>
                   </div>
                 </div>
@@ -289,9 +289,9 @@ const App = () => {
                       <Award className="text-black" size={20} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-white mb-2">Self-Taught Full Stack Developer</h4>
-                      <p className="text-gray-300 mb-2">Self-Taught • 2021 - Present</p>
-                      <p className="text-gray-400 text-sm">Built and maintained full-stack applications from concept to deployment.</p>
+                      <h4 className="text-lg font-semibold text-white mb-2">Technical Support</h4>
+                      <p className="text-gray-300 mb-2">Bump Géoservices • 2024 - Present</p>
+                      <p className="text-gray-400 text-sm">Providing technical support and troubleshooting with location-tracking devices used for vehicle fleet management and personnel monitoring.</p>
                     </div>
                   </div>
                 </div>
