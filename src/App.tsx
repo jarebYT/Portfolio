@@ -13,7 +13,7 @@ const App = () => {
       title: "Ascendance",
       description: "2D platformer/Boss Rush game with unique mechanics and challenging levels.",
       tech: ["Unity", "C#", "Aseprite", "Photoshop"],
-      image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: "/img/ascendance.png",
       github: "https://github.com/jarebYT/Ascendance",
       live: "https://github.com/jarebYT/Ascendance/releases/tag/release"
     },
@@ -21,7 +21,7 @@ const App = () => {
       title: "Pong Panic VR",
       description: "Virtual Reality pong game with multiplayer support and immersive graphics.",
       tech: ["Unity", "C#", "Blender", "Oculus SDK"],
-      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: "/img/pongpanic.png",
       github: "https://github.com/jarebYT/Pong-Panic-VR",
       live: "https://github.com/jarebYT/Pong-Panic-VR"
     },
@@ -29,7 +29,7 @@ const App = () => {
       title: "Fromage Clicker",
       description: "Beautiful cheese-themed clicker game with interactive UI and engaging gameplay.",
       tech: ["HTML", "CSS", "JavaScript"],
-      image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: "/img/fromageclicker.png",
       github: "https://github.com/jarebYT/Fromage-Clicker",
       live: "https://github.com/jarebYT/Fromage-Clicker"
     }
@@ -277,9 +277,9 @@ const App = () => {
                       <Award className="text-black" size={20} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-white mb-2">Senior Frontend Developer</h4>
-                      <p className="text-gray-300 mb-2">Tech Company • 2021 - Present</p>
-                      <p className="text-gray-400 text-sm">Leading frontend development for web applications using React and modern technologies.</p>
+                      <h4 className="text-lg font-semibold text-white mb-2">Technical Support</h4>
+                      <p className="text-gray-300 mb-2">Bump Géoservices • 2024 - Present</p>
+                      <p className="text-gray-400 text-sm">Providing technical support and troubleshooting with location-tracking devices used for vehicle fleet management and personnel monitoring.</p>
                     </div>
                   </div>
                 </div>
@@ -289,8 +289,8 @@ const App = () => {
                       <Award className="text-black" size={20} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-white mb-2">Full Stack Developer</h4>
-                      <p className="text-gray-300 mb-2">Startup • 2019 - 2021</p>
+                      <h4 className="text-lg font-semibold text-white mb-2">Self-Taught Full Stack Developer</h4>
+                      <p className="text-gray-300 mb-2">Self-Taught • 2021 - Present</p>
                       <p className="text-gray-400 text-sm">Built and maintained full-stack applications from concept to deployment.</p>
                     </div>
                   </div>
@@ -300,7 +300,10 @@ const App = () => {
               <div className="mt-8">
                 <h4 className="text-lg font-semibold text-white mb-4">Technologies I Work With</h4>
                 <div className="flex flex-wrap gap-3">
-                  {['React', 'TypeScript', 'Node.js', 'Python', 'MongoDB', 'PostgreSQL', 'AWS', 'Docker', 'Git', 'Figma'].map((tech) => (
+                  {['C', 'C++', 'Python', 'Java', 'JavaScript', 'TypeScript', 'PHP', 'HTML5', 'CSS3', 'SQL',
+                    'React', 'Next.js', 'Node.js', 'Express.js', 'TailwindCSS', 'Bootstrap',
+                    'MySQL', 'PostgreSQL', 'MongoDB', 'Docker', 'Linux', 'Git', 'GitHub', 'VSCode', 'Postman',
+                    'AWS', 'Azure', 'Netlify', 'Apache'].map((tech) => (
                     <span key={tech} className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-300 hover:border-white transition-colors">
                       {tech}
                     </span>
