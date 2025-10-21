@@ -13,7 +13,7 @@ const App = () => {
       title: "Ascendance",
       description: "2D platformer/Boss Rush game with unique mechanics and challenging levels.",
       tech: ["Unity", "C#", "Aseprite", "Photoshop"],
-      image: "./img/ascendance.png",
+      image: "https://github.com/jarebYT/Portfolio/blob/main/img/ascendance.png?raw=true",
       github: "https://github.com/jarebYT/Ascendance",
       live: "https://github.com/jarebYT/Ascendance/releases/tag/release"
     },
@@ -21,7 +21,7 @@ const App = () => {
       title: "Pong Panic VR",
       description: "Virtual Reality pong game with multiplayer support and immersive graphics.",
       tech: ["Unity", "C#", "Blender", "Oculus SDK"],
-      image: "./img/pongpanic.png",
+      image: "https://github.com/jarebYT/Portfolio/blob/main/img/pongpanic.png?raw=true",
       github: "https://github.com/jarebYT/Pong-Panic-VR",
       live: "https://github.com/jarebYT/Pong-Panic-VR"
     },
@@ -29,7 +29,7 @@ const App = () => {
       title: "Fromage Clicker",
       description: "Beautiful cheese-themed clicker game with interactive UI and engaging gameplay.",
       tech: ["HTML", "CSS", "JavaScript"],
-      image: "./img/fromageclicker.png",
+      image: "https://github.com/jarebYT/Portfolio/blob/main/img/fromageclicker.png?raw=true",
       github: "https://github.com/jarebYT/Fromage-Clicker",
       live: "https://github.com/jarebYT/Fromage-Clicker"
     }
