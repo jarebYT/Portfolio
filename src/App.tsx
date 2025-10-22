@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Menu, X, ChevronDown, MapPin, Calendar, Award } from 'lucide-react';
 
 // Components
@@ -368,6 +368,7 @@ const App = () => {
         </div>
       </footer>
     </div>
+    
   );
 };
 
