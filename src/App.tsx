@@ -44,10 +44,20 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <Plasma />
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-md border-b border-gray-800">
+  <div className="relative bg-black overflow-hidden">
+    <Plasma 
+      color="#324773" 
+      speed={0.5} 
+      direction="forward" 
+      scale={0.4} 
+      opacity={1} 
+      mouseInteractive={false} 
+    />
+    <div className="min-h-screen text-white">
+
+      <div className="relative z-10">
+        {/* Navigation */}
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0">
@@ -224,7 +234,7 @@ const App = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="bg-black rounded-xl overflow-hidden border border-gray-800 hover:border-gray-600 transition-all group">
+              <div key={index} className="rounded-xl overflow-hidden border border-gray-800 hover:border-gray-600 transition-all group">
                 <div className="relative overflow-hidden">
                   <img 
                     src={project.image} 
@@ -368,7 +378,8 @@ const App = () => {
         </div>
       </footer>
     </div>
-    
+  </div>
+  </div>
   );
 };
 
