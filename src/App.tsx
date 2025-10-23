@@ -250,7 +250,7 @@ const App = () => {
                     </a>
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="p-6 bg-black">
                   <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
                   <p className="text-gray-300 mb-4 text-sm leading-relaxed">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
@@ -370,7 +370,7 @@ const App = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 border-t border-gray-800">
+      <footer className="py-8 px-4 border-gray-800">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-400">
             © 2025 Alexandre Vanneuville. All rights reserved. Built with React & Tailwind CSS.
