@@ -99,103 +99,123 @@ export const Plasma: React.FC<PlasmaProps> = ({
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mousePos = useRef({ x: 0, y: 0 });
 
-  useEffect(() => {
-    if (!containerRef.current) return;
+useEffect(() => {
+  if (!containerRef.current) return;
 
-    const useCustomColor = color ? 1.0 : 0.0;
-    const customColorRgb = color ? hexToRgb(color) : [1, 1, 1];
+  const useCustomColor = color ? 1.0 : 0.0;
+  const customColorRgb = color ? hexToRgb(color) : [1, 1, 1];
+  const directionMultiplier = direction === 'reverse' ? -1.0 : 1.0;
 
-    const directionMultiplier = direction === 'reverse' ? -1.0 : 1.0;
+  const renderer = new Renderer({
+    webgl: 2,
+    alpha: true,
+    antialias: false,
+    dpr: 0.4,
+  });
+  const gl = renderer.gl;
+  const canvas = gl.canvas as HTMLCanvasElement;
+  canvas.style.display = 'block';
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+  containerRef.current.appendChild(canvas);
 
-    const renderer = new Renderer({
-      webgl: 2,
-      alpha: true,
-      antialias: false,
-      dpr: 0.5,
-    });
-    const gl = renderer.gl;
-    const canvas = gl.canvas as HTMLCanvasElement;
-    canvas.style.display = 'block';
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
-    containerRef.current.appendChild(canvas);
+  const geometry = new Triangle(gl);
+  const program = new Program(gl, {
+    vertex,
+    fragment,
+    uniforms: {
+      iTime: { value: 0 },
+      iResolution: { value: new Float32Array([1, 1]) },
+      uCustomColor: { value: new Float32Array(customColorRgb) },
+      uUseCustomColor: { value: useCustomColor },
+      uSpeed: { value: speed * 0.4 },
+      uDirection: { value: directionMultiplier },
+      uScale: { value: scale },
+      uOpacity: { value: opacity },
+      uMouse: { value: new Float32Array([0, 0]) },
+      uMouseInteractive: { value: mouseInteractive ? 1.0 : 0.0 },
+    },
+  });
 
-    const geometry = new Triangle(gl);
+  const mesh = new Mesh(gl, { geometry, program });
 
-    const program = new Program(gl, {
-      vertex: vertex,
-      fragment: fragment,
-      uniforms: {
-        iTime: { value: 0 },
-        iResolution: { value: new Float32Array([1, 1]) },
-        uCustomColor: { value: new Float32Array(customColorRgb) },
-        uUseCustomColor: { value: useCustomColor },
-        uSpeed: { value: speed * 0.4 },
-        uDirection: { value: directionMultiplier },
-        uScale: { value: scale },
-        uOpacity: { value: opacity },
-        uMouse: { value: new Float32Array([0, 0]) },
-        uMouseInteractive: { value: mouseInteractive ? 1.0 : 0.0 }
-      }
-    });
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!mouseInteractive) return;
+    const rect = containerRef.current!.getBoundingClientRect();
+    const mouseUniform = program.uniforms.uMouse.value as Float32Array;
+    mouseUniform[0] = e.clientX - rect.left;
+    mouseUniform[1] = e.clientY - rect.top;
+  };
 
-    const mesh = new Mesh(gl, { geometry, program });
+  if (mouseInteractive) {
+    containerRef.current.addEventListener('mousemove', handleMouseMove);
+  }
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!mouseInteractive) return;
-      const rect = containerRef.current!.getBoundingClientRect();
-      mousePos.current.x = e.clientX - rect.left;
-      mousePos.current.y = e.clientY - rect.top;
-      const mouseUniform = program.uniforms.uMouse.value as Float32Array;
-      mouseUniform[0] = mousePos.current.x;
-      mouseUniform[1] = mousePos.current.y;
-    };
+  const setSize = () => {
+    const rect = containerRef.current!.getBoundingClientRect();
+    const width = Math.max(1, Math.floor(rect.width));
+    const height = Math.max(1, Math.floor(rect.height));
+    renderer.setSize(width, height);
+    const res = program.uniforms.iResolution.value as Float32Array;
+    res[0] = gl.drawingBufferWidth;
+    res[1] = gl.drawingBufferHeight;
+  };
 
-    if (mouseInteractive) {
-      containerRef.current.addEventListener('mousemove', handleMouseMove);
+  const ro = new ResizeObserver(setSize);
+  ro.observe(containerRef.current);
+  setSize();
+
+  let raf = 0;
+  const t0 = performance.now();
+  let isVisible = true; // 👈 pour suivre la visibilité
+
+  const loop = (t: number) => {
+    if (!isVisible) return; // 👈 stoppe la boucle quand caché
+
+    let timeValue = (t - t0) * 0.001;
+    if (direction === 'pingpong') {
+      const cycle = Math.sin(timeValue * 0.5) * directionMultiplier;
+      (program.uniforms.uDirection as any).value = cycle;
     }
 
-    const setSize = () => {
-      const rect = containerRef.current!.getBoundingClientRect();
-      const width = Math.max(1, Math.floor(rect.width));
-      const height = Math.max(1, Math.floor(rect.height));
-      renderer.setSize(width, height);
-      const res = program.uniforms.iResolution.value as Float32Array;
-      res[0] = gl.drawingBufferWidth;
-      res[1] = gl.drawingBufferHeight;
-    };
-
-    const ro = new ResizeObserver(setSize);
-    ro.observe(containerRef.current);
-    setSize();
-
-    let raf = 0;
-    const t0 = performance.now();
-    const loop = (t: number) => {
-      let timeValue = (t - t0) * 0.001;
-
-      if (direction === 'pingpong') {
-        const cycle = Math.sin(timeValue * 0.5) * directionMultiplier;
-        (program.uniforms.uDirection as any).value = cycle;
-      }
-
-      (program.uniforms.iTime as any).value = timeValue;
-      renderer.render({ scene: mesh });
-      raf = requestAnimationFrame(loop);
-    };
+    (program.uniforms.iTime as any).value = timeValue;
+    renderer.render({ scene: mesh });
     raf = requestAnimationFrame(loop);
+  };
+  raf = requestAnimationFrame(loop);
 
-    return () => {
+  // 👇 nouvelle logique : observer le scroll
+  const handleScroll = () => {
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const isNowVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+
+    if (isNowVisible && !isVisible) {
+      // Si on revient dans le viewport → relancer l’animation
+      isVisible = true;
+      raf = requestAnimationFrame(loop);
+    } else if (!isNowVisible && isVisible) {
+      // Si on sort du viewport → stopper l’animation
+      isVisible = false;
       cancelAnimationFrame(raf);
-      ro.disconnect();
-      if (mouseInteractive && containerRef.current) {
-        containerRef.current.removeEventListener('mousemove', handleMouseMove);
-      }
-      try {
-        containerRef.current?.removeChild(canvas);
-      } catch {}
-    };
-  }, [color, speed, direction, scale, opacity, mouseInteractive]);
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+  return () => {
+    cancelAnimationFrame(raf);
+    ro.disconnect();
+    window.removeEventListener('scroll', handleScroll);
+    if (mouseInteractive && containerRef.current) {
+      containerRef.current.removeEventListener('mousemove', handleMouseMove);
+    }
+    try {
+      containerRef.current?.removeChild(canvas);
+    } catch {}
+  };
+}, [color, speed, direction, scale, opacity, mouseInteractive]);
+
 
   return <div ref={containerRef} className="w-full h-full block absolute inset-0 z-0" />;
 };

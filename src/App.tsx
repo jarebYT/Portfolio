@@ -45,8 +45,9 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <Plasma />
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-md border-b border-gray-800">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0">
@@ -99,7 +100,6 @@ const App = () => {
       </nav>
 
       <section id="home" className="relative min-h-screen flex items-center justify-center px-4 pt-16">
-        <Plasma />
 
         {/* Contenu centré */}
         <div className="text-center max-w-4xl mx-auto relative z-10">
@@ -213,7 +213,7 @@ const App = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-4 bg-gray-900">
+      <section id="projects" className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
@@ -316,7 +316,7 @@ const App = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 bg-gray-900">
+      <section id="contact" className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Work Together</h2>
           <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
