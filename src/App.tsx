@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Menu, X, ChevronDown, MapPin, Calendar, Award } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Menu, X, ChevronDown, MapPin, Calendar, Award, Server } from 'lucide-react';
 
 // Components
 import ShinyText from "./components/ShinyText";
 import Plasma from './components/Plasma';
+import CountUp from './components/CountUp';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -182,15 +183,16 @@ const App = () => {
               
               <div className="grid grid-cols-3 gap-6 mb-8">
                 <div className="text-center p-4 bg-gray-900 rounded-lg border border-gray-800">
-                  <div className="text-2xl font-bold text-white">10+</div>
+                  <div className="text-2xl font-bold text-white"><CountUp from={0} to={10} separator="," direction="up" duration={2} delay ={0.5} className="count-up-text"/>+</div>
+
                   <div className="text-gray-400 text-sm">Projects</div>
                 </div>
                 <div className="text-center p-4 bg-gray-900 rounded-lg border border-gray-800">
-                  <div className="text-2xl font-bold text-white">3+</div>
+                  <div className="text-2xl font-bold text-white"><CountUp from={0} to={3} separator="," direction="up" duration={2} delay ={0.5} className="count-up-text"/></div>
                   <div className="text-gray-400 text-sm">Years</div>
                 </div>
                 <div className="text-center p-4 bg-gray-900 rounded-lg border border-gray-800">
-                  <div className="text-2xl font-bold text-white">0</div>
+                  <div className="text-2xl font-bold text-white"><CountUp from={0} to={35} separator="," direction="up" duration={2} delay ={0.5} className="count-up-text"/></div>
                   <div className="text-gray-400 text-sm">Clients</div>
                 </div>
               </div>
@@ -284,7 +286,7 @@ const App = () => {
                 <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
                   <div className="flex items-start gap-4">
                     <div className="p-2 bg-white rounded-lg">
-                      <Award className="text-black" size={20} />
+                      <Server className="text-black" size={20} />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-2">Self-Taught Full Stack Developer</h4>
@@ -309,7 +311,7 @@ const App = () => {
               
               <div className="mt-8">
                 <h4 className="text-lg font-semibold text-white mb-4">Technologies I Work With</h4>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-3 items-center justify-center">
                   {['C', 'C++', 'Python', 'Java', 'JavaScript', 'TypeScript', 'PHP', 'HTML5', 'CSS3', 'SQL',
                     'React', 'Next.js', 'Node.js', 'Express.js', 'TailwindCSS', 'Bootstrap',
                     'MySQL', 'PostgreSQL', 'MongoDB', 'Docker', 'Linux', 'Git', 'GitHub', 'VSCode', 'Postman',
