@@ -172,7 +172,7 @@ const App = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Calendar size={16} />
-                  <span>3+ Years Experience</span>
+                  <span>4+ Years Experience</span>
                 </div>
               </div>
               
@@ -188,7 +188,7 @@ const App = () => {
                   <div className="text-gray-400 text-sm">Projects</div>
                 </div>
                 <div className="text-center p-4 bg-gray-900 rounded-lg border border-gray-800">
-                  <div className="text-2xl font-bold text-white"><CountUp from={0} to={3} separator="," direction="up" duration={2} delay ={0.5} className="count-up-text"/></div>
+                  <div className="text-2xl font-bold text-white"><CountUp from={0} to={4} separator="," direction="up" duration={2} delay ={0.5} className="count-up-text"/></div>
                   <div className="text-gray-400 text-sm">Years</div>
                 </div>
                 <div className="text-center p-4 bg-gray-900 rounded-lg border border-gray-800">
@@ -198,13 +198,13 @@ const App = () => {
               </div>
               
               <div className="flex gap-4 justify-center lg:justify-start">
-                <a href="#" className="p-3 bg-white rounded-lg hover:bg-gray-200 transition-all">
+                <a href="https://github.com/jarebYT" className="p-3 bg-white rounded-lg hover:bg-gray-200 transition-all">
                   <Github className="text-black" size={20} />
                 </a>
-                <a href="#" className="p-3 bg-white rounded-lg hover:bg-gray-200 transition-all">
+                <a href="https://www.linkedin.com/in/alexandre-vanneuville/" className="p-3 bg-white rounded-lg hover:bg-gray-200 transition-all">
                   <Linkedin className="text-black" size={20} />
                 </a>
-                <a href="#" className="p-3 bg-white rounded-lg hover:bg-gray-200 transition-all">
+                <a href="mailto:alexandre.vnvl@gmail.com" className="p-3 bg-white rounded-lg hover:bg-gray-200 transition-all">
                   <Mail className="text-black" size={20} />
                 </a>
               </div>
