@@ -11,8 +11,16 @@ const App = () => {
 
   const projects = [
     {
+      title: "nullOS",
+      description: "nullOS is a minimalist operating system written in C and Assembly, inspired by Unix principles.",
+      tech: ["C", "Assembly", "SASM", "Makefile"],
+      image: "https://github.com/jarebYT/Portfolio/blob/main/img/nullos.png?raw=true",
+      github: "https://github.com/jarebYT/nullOS",
+      live: "https://github.com/jarebYT/nullOS"
+    },
+    {
       title: "Ascendance",
-      description: "2D platformer/Boss Rush game with unique mechanics and challenging levels.",
+      description: "Ascendance is a 2D platformer/Boss Rush game with unique mechanics and challenging levels.",
       tech: ["Unity", "C#", "Aseprite", "Photoshop"],
       image: "https://github.com/jarebYT/Portfolio/blob/main/img/ascendance.png?raw=true",
       github: "https://github.com/jarebYT/Ascendance",
@@ -20,19 +28,11 @@ const App = () => {
     },
     {
       title: "Pong Panic VR",
-      description: "Virtual Reality pong game with multiplayer support and immersive graphics.",
+      description: "Pong Panic VR is a ping pong game in VR with multiplayer support and immersive graphics.",
       tech: ["Unity", "C#", "Blender", "Oculus SDK"],
       image: "https://github.com/jarebYT/Portfolio/blob/main/img/pongpanic.png?raw=true",
       github: "https://github.com/jarebYT/Pong-Panic-VR",
       live: "https://github.com/jarebYT/Pong-Panic-VR"
-    },
-    {
-      title: "Fromage Clicker",
-      description: "Beautiful cheese-themed clicker game with interactive UI and engaging gameplay.",
-      tech: ["HTML", "CSS", "JavaScript"],
-      image: "https://github.com/jarebYT/Portfolio/blob/main/img/fromageclicker.png?raw=true",
-      github: "https://github.com/jarebYT/Fromage-Clicker",
-      live: "https://github.com/jarebYT/Fromage-Clicker"
     }
   ];
 
@@ -266,6 +266,16 @@ const App = () => {
               </div>
             ))}
           </div>
+        </div>
+        <div className="flex justify-center mt-12">
+          <a
+            href="https://github.com/jarebYT?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2 border border-gray-600 text-gray-300 rounded-lg font-semibold hover:border-white hover:text-white transition-all"
+          >
+            View more
+          </a>
         </div>
       </section>
 
