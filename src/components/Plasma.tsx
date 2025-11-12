@@ -97,7 +97,7 @@ export const Plasma: React.FC<PlasmaProps> = ({
   color = '#324773',
   speed = 0.5,
   direction = 'forward',
-  scale = 1.5, // 🔧 légèrement augmenté pour dézoomer un peu
+  scale = 1.5,
   opacity = 1,
   mouseInteractive = false,
 }) => {
@@ -115,7 +115,7 @@ export const Plasma: React.FC<PlasmaProps> = ({
       webgl: 2,
       alpha: true,
       antialias: true,
-      dpr: 0.4, // ✅ corrige le zoom
+      dpr: 0.4,
     });
 
     const gl = renderer.gl;

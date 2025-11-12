@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Menu, X, ChevronDown, MapPin, Calendar, Award, Server } from 'lucide-react';
 
-// Components
+// Components from ReactBits (you should go check it out, the compnents are awesome!)
 import ShinyText from "./components/ShinyText";
 import Plasma from './components/Plasma';
 import CountUp from './components/CountUp';
@@ -110,9 +110,9 @@ const App = () => {
         )}
       </nav>
 
+      {/* Home Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center px-4 pt-16">
 
-        {/* Contenu centré */}
         <div className="text-center max-w-4xl mx-auto relative z-10">
           <div className="inline-block px-4 py-2 bg-gray-900 rounded-full border border-gray-700 mb-8">
             <span className="text-gray-300 text-sm font-medium">👋 Hello, I'm Alexandre</span>
@@ -142,7 +142,7 @@ const App = () => {
           </div>
         </div>
 
-        {/* Flèche en bas */}
+        {/* Down Arrow */}
         <div className="absolute bottom-4 left-0 right-0 flex justify-center animate-bounce">
           <ChevronDown className="text-gray-400" size={32} />
         </div>
