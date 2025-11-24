@@ -14,7 +14,7 @@ const App = () => {
       title: "Pong Panic VR",
       description: "Pong Panic VR is a ping pong game in VR with amazing physics and multiplayer support.",
       tech: ["Unity", "C#", "Blender", "Oculus SDK"],
-      image: "https://github.com/jarebYT/Portfolio/blob/main/img/pongpanic.png?raw=true",
+      image: "https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/pongpanic.png",
       github: "https://github.com/jarebYT/Pong-Panic-VR",
       live: "https://github.com/jarebYT/Pong-Panic-VR"
     },
@@ -22,7 +22,7 @@ const App = () => {
       title: "nullOS",
       description: "nullOS is a minimalist operating system written in C and Assembly, inspired by Unix principles.",
       tech: ["C", "Assembly", "SASM", "Makefile"],
-      image: "https://github.com/jarebYT/Portfolio/blob/main/img/nullos.png?raw=true",
+      image: "https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/nullos.png",
       github: "https://github.com/jarebYT/nullOS",
       live: "https://github.com/jarebYT/nullOS"
     },
@@ -30,7 +30,7 @@ const App = () => {
       title: "Ascendance",
       description: "Ascendance is a 2D platformer/Boss Rush game with unique mechanics and challenging levels.",
       tech: ["Unity", "C#", "Aseprite", "Photoshop"],
-      image: "https://github.com/jarebYT/Portfolio/blob/main/img/ascendance.png?raw=true",
+      image: "https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/ascendance.png",
       github: "https://github.com/jarebYT/Ascendance",
       live: "https://github.com/jarebYT/Ascendance/releases/tag/release"
     }
