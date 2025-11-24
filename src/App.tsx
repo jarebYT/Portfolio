@@ -11,6 +11,14 @@ const App = () => {
 
   const projects = [
     {
+      title: "Pong Panic VR",
+      description: "Pong Panic VR is a ping pong game in VR with amazing physics and multiplayer support.",
+      tech: ["Unity", "C#", "Blender", "Oculus SDK"],
+      image: "https://github.com/jarebYT/Portfolio/blob/main/img/pongpanic.png?raw=true",
+      github: "https://github.com/jarebYT/Pong-Panic-VR",
+      live: "https://github.com/jarebYT/Pong-Panic-VR"
+    },
+    {
       title: "nullOS",
       description: "nullOS is a minimalist operating system written in C and Assembly, inspired by Unix principles.",
       tech: ["C", "Assembly", "SASM", "Makefile"],
@@ -25,14 +33,6 @@ const App = () => {
       image: "https://github.com/jarebYT/Portfolio/blob/main/img/ascendance.png?raw=true",
       github: "https://github.com/jarebYT/Ascendance",
       live: "https://github.com/jarebYT/Ascendance/releases/tag/release"
-    },
-    {
-      title: "Pong Panic VR",
-      description: "Pong Panic VR is a ping pong game in VR with multiplayer support and immersive graphics.",
-      tech: ["Unity", "C#", "Blender", "Oculus SDK"],
-      image: "https://github.com/jarebYT/Portfolio/blob/main/img/pongpanic.png?raw=true",
-      github: "https://github.com/jarebYT/Pong-Panic-VR",
-      live: "https://github.com/jarebYT/Pong-Panic-VR"
     }
   ];
 
