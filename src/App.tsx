@@ -280,6 +280,15 @@ const App = () => {
                   ))}
                 </div>
               </div>
+
+              <div className="mt-12 text-center items-center justify-center flex">
+                  <img className="rounded-lg border border-gray-800"
+                    src="https://github-readme-activity-graph.vercel.app/graph?username=jarebYT&bg_color=111827&color=ffffff&line=ffffff&point=ffffff&area=true&hide_border=true"
+                    alt="GitHub activity graph"
+                    loading="lazy"
+                    style={{ maxWidth: '80%', height: 'auto' }}
+                  />
+              </div>
             </div>
           </div>
         </div>
