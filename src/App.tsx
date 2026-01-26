@@ -33,6 +33,30 @@ const App = () => {
       image: "https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/ascendance.png",
       github: "https://github.com/jarebYT/Ascendance",
       live: "https://github.com/jarebYT/Ascendance/releases/tag/release"
+    },
+    {
+      title: "TimeCapsule",
+      description: "TimeCapsule is a web app that lets you write and lock messages for your future self.",
+      tech: ["React", "Express", "MongoDB", "AES Encryption"],
+      image: "https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/timecapsule.png",
+      github: "https://github.com/jarebYT/timecapsule",
+      live: "https://github.com/jarebYT/timecapsule"
+    },
+    {
+      title: "Troll Vault",
+      description: "Troll Vault is a simple and accessible website to download a troll script when people let their computer unattended.",
+      tech: ["HTML", "CSS", "JS", "BASH"],
+      image: "https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/troll-vault.png",
+      github: "https://github.com/jarebYT/troll-Vault",
+      live: "troll.alexandrevnvl.fr"
+    },
+    {
+      title: "More soon...",
+      description: "I'm continuously working on new projects to enhance my skills and showcase my creativity. Stay tuned !",
+      tech: ["..."],
+      image: "https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/moresoon.jpg",
+      github: "https://github.com/jarebYT",
+      live: "https://github.com/jarebYT"
     }
   ];
 
@@ -283,10 +307,10 @@ const App = () => {
 
               <div className="mt-12 text-center items-center justify-center flex">
                   <img className="rounded-lg border border-gray-800"
-                    src="https://github-readme-activity-graph.vercel.app/graph?username=jarebYT&bg_color=111827&color=ffffff&line=ffffff&point=ffffff&area=true&hide_border=true"
+                    src="https://github-readme-activity-graph.vercel.app/graph?username=jarebYT&bg_color=1f2937&color=ffffff&line=ffffff&point=ffffff&area=true&hide_border=true"
                     alt="GitHub activity graph"
                     loading="lazy"
-                    style={{ maxWidth: '80%', height: 'auto' }}
+                    style={{ maxWidth: '90%', height: 'auto' }}
                   />
               </div>
             </div>
@@ -342,7 +366,7 @@ const App = () => {
       <footer className="py-8 px-4 border-gray-800">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-400">
-            © 2025 Alexandre Vanneuville. All rights reserved. Built with React & Tailwind CSS.
+            © 2026 Alexandre Vanneuville. All rights reserved. Built with React & Tailwind CSS.
           </p>
         </div>
       </footer>
