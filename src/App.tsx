@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Menu, X, ChevronDown, MapPin, Calendar, Award, Server } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Menu, X, ChevronDown, MapPin, Calendar, Award, Server, Cpu } from 'lucide-react';
 
 // Components from ReactBits (you should go check it out, the compnents are awesome!)
 import ShinyText from "./components/ShinyText";
@@ -19,12 +19,12 @@ const App = () => {
       live: "https://github.com/jarebYT/Pong-Panic-VR"
     },
     {
-      title: "nullOS",
-      description: "nullOS is a minimalist operating system written in C and Assembly, inspired by Unix principles.",
-      tech: ["C", "Assembly", "SASM", "Makefile"],
-      image: "https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/nullos.png",
-      github: "https://github.com/jarebYT/nullOS",
-      live: "https://github.com/jarebYT/nullOS"
+      title: "Orbite",
+      description: "Orbite is a GPS tracking web application for real-time vehicle and asset monitoring based on Traccar.",
+      tech: ["React", "Node.js", "PostgreSQL", "LocationIQ API"],
+      image: "https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/orbite.png",
+      github: "https://github.com/jarebYT/Orbite",
+      live: "https://github.com/jarebYT/Orbite"
     },
     {
       title: "Ascendance",
@@ -35,20 +35,20 @@ const App = () => {
       live: "https://github.com/jarebYT/Ascendance/releases/tag/release"
     },
     {
+      title: "nullOS",
+      description: "nullOS is a minimalist operating system written in C and Assembly, inspired by Unix principles.",
+      tech: ["C", "Assembly", "SASM", "Makefile"],
+      image: "https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/nullos.png",
+      github: "https://github.com/jarebYT/nullOS",
+      live: "https://github.com/jarebYT/nullOS"
+    },
+    {
       title: "TimeCapsule",
       description: "TimeCapsule is a web app that lets you write and lock messages for your future self.",
       tech: ["React", "Express", "MongoDB", "AES Encryption"],
       image: "https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/timecapsule.png",
       github: "https://github.com/jarebYT/timecapsule",
       live: "https://github.com/jarebYT/timecapsule"
-    },
-    {
-      title: "Troll Vault",
-      description: "Troll Vault is a simple and accessible website to download a troll script when people let their computer unattended.",
-      tech: ["HTML", "CSS", "JS", "BASH"],
-      image: "https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/troll-vault.png",
-      github: "https://github.com/jarebYT/troll-Vault",
-      live: "troll.alexandrevnvl.fr"
     },
     {
       title: "More soon...",
@@ -280,12 +280,24 @@ const App = () => {
                 <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
                   <div className="flex items-start gap-4">
                     <div className="p-2 bg-white rounded-lg">
+                      <Cpu className="text-black" size={20} />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-white mb-2">IT Technical Support Level 2</h4>
+                      <p className="text-gray-300 mb-2">Situaction • 2026 - Present</p>
+                      <p className="text-gray-400 text-sm">Delivering advanced Level 2 technical support and complex systems troubleshooting for large-scale fleet telematics, while managing specialized hardware integration and refined operational workflows.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 bg-white rounded-lg">
                       <Award className="text-black" size={20} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-white mb-2">Technical Support</h4>
-                      <p className="text-gray-300 mb-2">Bump Géoservices • 2024 - Present</p>
-                      <p className="text-gray-400 text-sm">Providing technical support and troubleshooting with location-tracking devices used for vehicle fleet management and personnel monitoring.</p>
+                      <h4 className="text-lg font-semibold text-white mb-2">IT Technical Support</h4>
+                      <p className="text-gray-300 mb-2">Bump Géoservices • 2024 - 2026</p>
+                      <p className="text-gray-400 text-sm">Providing Level 1 & 2 technical support, deploying IoT location-tracking devices for fleet management, and structuring dedicated customer training programs to drive user autonomy.</p>
                     </div>
                   </div>
                 </div>
