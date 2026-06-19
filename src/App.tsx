@@ -69,7 +69,7 @@ const App = () => {
   };
 
   return (
-  <div className="relative bg-black overflow-hidden">
+  <div className="relative isolate bg-black overflow-x-hidden">
     <Plasma 
       color="#324773" 
       speed={0.5} 
@@ -78,9 +78,9 @@ const App = () => {
       opacity={1} 
       mouseInteractive={false} 
     />
-    <div className="min-h-screen text-white">
+    <div className="relative z-10 min-h-screen text-white">
 
-      <div className="relative z-10">
+      <div>
 
       {/* Home Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center px-4 pt-16">

@@ -122,12 +122,13 @@ export const Plasma: React.FC<PlasmaProps> = ({
     const canvas = gl.canvas as HTMLCanvasElement;
     Object.assign(canvas.style, {
       display: 'block',
-      position: 'fixed',
+      position: 'absolute',
       top: '0',
       left: '0',
-      width: '100vw',
-      height: '100vh',
+      width: '100%',
+      height: '100%',
       zIndex: '-10',
+      pointerEvents: 'none',
     });
     containerRef.current.appendChild(canvas);
 
@@ -167,14 +168,21 @@ export const Plasma: React.FC<PlasmaProps> = ({
     }
 
     const setSize = () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
+      const host = containerRef.current?.parentElement;
+      const width = host?.clientWidth ?? window.innerWidth;
+      const height = host?.scrollHeight ?? document.documentElement.scrollHeight;
       renderer.setSize(width, height);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
       const res = program.uniforms.iResolution.value as Float32Array;
       res[0] = gl.drawingBufferWidth;
       res[1] = gl.drawingBufferHeight;
     };
 
+    const resizeObserver = new ResizeObserver(setSize);
+    if (containerRef.current.parentElement) {
+      resizeObserver.observe(containerRef.current.parentElement);
+    }
     window.addEventListener('resize', setSize);
     setSize();
 
@@ -195,6 +203,7 @@ export const Plasma: React.FC<PlasmaProps> = ({
 
     return () => {
       cancelAnimationFrame(raf);
+      resizeObserver.disconnect();
       window.removeEventListener('resize', setSize);
       if (mouseInteractive) {
         containerRef.current?.removeEventListener('mousemove', handleMouseMove);
@@ -208,7 +217,7 @@ export const Plasma: React.FC<PlasmaProps> = ({
   return (
     <div
       ref={containerRef}
-      className="w-full h-full fixed top-0 left-0 z-0 overflow-hidden"
+      className="absolute inset-0 z-0 overflow-hidden pointer-events-none"
     />
   );
 };
