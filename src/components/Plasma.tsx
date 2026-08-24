@@ -115,18 +115,18 @@ export const Plasma: React.FC<PlasmaProps> = ({
       webgl: 2,
       alpha: true,
       antialias: true,
-      dpr: 0.4,
+      dpr: 0.25,
     });
 
     const gl = renderer.gl;
     const canvas = gl.canvas as HTMLCanvasElement;
     Object.assign(canvas.style, {
       display: 'block',
-      position: 'fixed',
+      position: 'absolute',
       top: '0',
       left: '0',
-      width: '100vw',
-      height: '100vh',
+      width: '100%',
+      height: '100%',
       zIndex: '-10',
     });
     containerRef.current.appendChild(canvas);
@@ -168,13 +168,15 @@ export const Plasma: React.FC<PlasmaProps> = ({
 
     const setSize = () => {
       const width = window.innerWidth;
-      const height = window.innerHeight;
+      const height = Math.max(document.body.scrollHeight, window.innerHeight);
       renderer.setSize(width, height);
       const res = program.uniforms.iResolution.value as Float32Array;
       res[0] = gl.drawingBufferWidth;
       res[1] = gl.drawingBufferHeight;
     };
 
+    // Also update size on scroll in case content loads dynamically
+    window.addEventListener('scroll', setSize);
     window.addEventListener('resize', setSize);
     setSize();
 
@@ -195,6 +197,7 @@ export const Plasma: React.FC<PlasmaProps> = ({
 
     return () => {
       cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', setSize);
       window.removeEventListener('resize', setSize);
       if (mouseInteractive) {
         containerRef.current?.removeEventListener('mousemove', handleMouseMove);
@@ -208,7 +211,7 @@ export const Plasma: React.FC<PlasmaProps> = ({
   return (
     <div
       ref={containerRef}
-      className="w-full h-full fixed top-0 left-0 z-0 overflow-hidden"
+      className="w-full h-full absolute bottom-0 left-0 z-0 overflow-hidden"
     />
   );
 };
