@@ -115,7 +115,7 @@ export const Plasma: React.FC<PlasmaProps> = ({
       webgl: 2,
       alpha: true,
       antialias: true,
-      dpr: 0.4,
+      dpr: 0.25,
     });
 
     const gl = renderer.gl;
@@ -168,9 +168,8 @@ export const Plasma: React.FC<PlasmaProps> = ({
     }
 
     const setSize = () => {
-      const host = containerRef.current?.parentElement;
-      const width = host?.clientWidth ?? window.innerWidth;
-      const height = host?.scrollHeight ?? document.documentElement.scrollHeight;
+      const width = window.innerWidth;
+      const height = Math.max(document.body.scrollHeight, window.innerHeight);
       renderer.setSize(width, height);
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
@@ -179,10 +178,8 @@ export const Plasma: React.FC<PlasmaProps> = ({
       res[1] = gl.drawingBufferHeight;
     };
 
-    const resizeObserver = new ResizeObserver(setSize);
-    if (containerRef.current.parentElement) {
-      resizeObserver.observe(containerRef.current.parentElement);
-    }
+    // Also update size on scroll in case content loads dynamically
+    window.addEventListener('scroll', setSize);
     window.addEventListener('resize', setSize);
     setSize();
 
@@ -203,7 +200,7 @@ export const Plasma: React.FC<PlasmaProps> = ({
 
     return () => {
       cancelAnimationFrame(raf);
-      resizeObserver.disconnect();
+      window.removeEventListener('scroll', setSize);
       window.removeEventListener('resize', setSize);
       if (mouseInteractive) {
         containerRef.current?.removeEventListener('mousemove', handleMouseMove);
@@ -217,7 +214,7 @@ export const Plasma: React.FC<PlasmaProps> = ({
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 z-0 overflow-hidden pointer-events-none"
+      className="w-full h-full absolute bottom-0 left-0 z-0 overflow-hidden"
     />
   );
 };
