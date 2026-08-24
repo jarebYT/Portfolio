@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, MapPin, Calendar, Award, Server, Cpu, ChevronDown } from 'lucide-react';
 
 // React Bits components
@@ -10,7 +11,135 @@ import TiltedCard from './components/TiltedCard';
 import FadeContent from './components/FadeContent';
 import SpecularButton from './components/SpecularButton';
 
+// ─── Pastel palettes picked randomly on each page load ───
+interface Palette {
+  name: string;
+  plasma: string;
+  accent: string;
+  accentLight: string;
+  accentDark: string;
+  buttonBase: string;
+  statFrom: string;
+  statTo: string;
+  graphColor: string;
+  graphLine: string;
+  graphPoint: string;
+}
+
+const PALETTES: Palette[] = [
+  {
+    name: 'blue',
+    plasma: '#1e3a5f',
+    accent: '#93c5fd',
+    accentLight: '#bfdbfe',
+    accentDark: '#3b82f6',
+    buttonBase: '#111c30',
+    statFrom: '#60a5fa',
+    statTo: '#93c5fd',
+    graphColor: '#93c5fd',
+    graphLine: '#3b82f6',
+    graphPoint: '#bfdbfe'
+  },
+  {
+    name: 'green',
+    plasma: '#1a3a2a',
+    accent: '#86efac',
+    accentLight: '#bbf7d0',
+    accentDark: '#22c55e',
+    buttonBase: '#0f1f15',
+    statFrom: '#4ade80',
+    statTo: '#86efac',
+    graphColor: '#86efac',
+    graphLine: '#22c55e',
+    graphPoint: '#bbf7d0'
+  },
+  {
+    name: 'pink',
+    plasma: '#3a1a30',
+    accent: '#f9a8d4',
+    accentLight: '#fbcfe8',
+    accentDark: '#ec4899',
+    buttonBase: '#201019',
+    statFrom: '#f472b6',
+    statTo: '#f9a8d4',
+    graphColor: '#f9a8d4',
+    graphLine: '#ec4899',
+    graphPoint: '#fbcfe8'
+  },
+  {
+    name: 'purple',
+    plasma: '#2a1a3a',
+    accent: '#c4b5fd',
+    accentLight: '#ddd6fe',
+    accentDark: '#8b5cf6',
+    buttonBase: '#191024',
+    statFrom: '#a78bfa',
+    statTo: '#c4b5fd',
+    graphColor: '#c4b5fd',
+    graphLine: '#8b5cf6',
+    graphPoint: '#ddd6fe'
+  },
+  {
+    name: 'gold',
+    plasma: '#3a301a',
+    accent: '#fde68a',
+    accentLight: '#fef3c7',
+    accentDark: '#f59e0b',
+    buttonBase: '#201a0f',
+    statFrom: '#fbbf24',
+    statTo: '#fde68a',
+    graphColor: '#fde68a',
+    graphLine: '#f59e0b',
+    graphPoint: '#fef3c7'
+  },
+  {
+    name: 'teal',
+    plasma: '#1a3535',
+    accent: '#99f6e4',
+    accentLight: '#ccfbf1',
+    accentDark: '#0d9488',
+    buttonBase: '#0f1f1f',
+    statFrom: '#2dd4bf',
+    statTo: '#99f6e4',
+    graphColor: '#99f6e4',
+    graphLine: '#0d9488',
+    graphPoint: '#ccfbf1'
+  },
+  {
+    name: 'coral',
+    plasma: '#3a201a',
+    accent: '#fed7aa',
+    accentLight: '#ffe4cc',
+    accentDark: '#f97316',
+    buttonBase: '#201210',
+    statFrom: '#fb923c',
+    statTo: '#fed7aa',
+    graphColor: '#fed7aa',
+    graphLine: '#f97316',
+    graphPoint: '#ffe4cc'
+  },
+  {
+    name: 'lavender',
+    plasma: '#25203a',
+    accent: '#e9d5ff',
+    accentLight: '#f3e8ff',
+    accentDark: '#a855f7',
+    buttonBase: '#15101f',
+    statFrom: '#c084fc',
+    statTo: '#e9d5ff',
+    graphColor: '#e9d5ff',
+    graphLine: '#a855f7',
+    graphPoint: '#f3e8ff'
+  }
+];
+
+const pickRandom = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
+
 const App = () => {
+  const palette = useMemo(() => pickRandom(PALETTES), []);
+
+  const c = palette;
+
   const projects = [
     {
       title: 'Pong Panic VR',
@@ -69,12 +198,17 @@ const App = () => {
     }
   };
 
+  // Shared inline styles for the current palette
+  const shadowColor = `0 0 30px ${c.accentDark}26`;
+  const tagStyle: React.CSSProperties = { backgroundColor: `${c.accentDark}15`, color: c.accent, borderColor: `${c.accentDark}25` };
+  const chipStyle: React.CSSProperties = { backgroundColor: '#ffffff05', color: '#9ca3af', borderColor: '#ffffff0d' };
+
   return (
     <div className="relative bg-black text-white overflow-x-hidden">
-      {/* Plasma background — scrolls with the page, starts from bottom */}
+      {/* Plasma background */}
       <div className="absolute inset-0 w-full pointer-events-none" style={{ height: '100%' }}>
         <Plasma
-          color="#1e3a5f"
+          color={c.plasma}
           speed={0.5}
           direction="forward"
           scale={0.4}
@@ -87,10 +221,13 @@ const App = () => {
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4 py-20">
           <FadeContent duration={800} initialOpacity={0}>
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 mb-10 bg-white/[0.03] backdrop-blur-md rounded-full border border-white/[0.06] shadow-[0_0_30px_rgba(37,99,235,0.15)]">
+            <div
+              className="inline-flex items-center gap-2 px-5 py-2.5 mb-10 bg-white/[0.03] backdrop-blur-md rounded-full border border-white/[0.06]"
+              style={{ boxShadow: shadowColor }}
+            >
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: c.accent }} />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5" style={{ backgroundColor: c.accent }} />
               </span>
               <span className="text-gray-300 text-sm font-medium tracking-wide">Hello, I'm Alexandre</span>
             </div>
@@ -120,7 +257,7 @@ const App = () => {
               className="text-lg md:text-xl max-w-2xl mx-auto mb-14 text-center block"
               speed={3}
               color="#6b7280"
-              shineColor="#60A5FA"
+              shineColor={c.accentLight}
               spread={90}
             />
           </FadeContent>
@@ -129,8 +266,8 @@ const App = () => {
             <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
               <SpecularButton
                 size="lg"
-                lineColor="#3B82F6"
-                baseColor="#1a2744"
+                lineColor={c.accentDark}
+                baseColor={c.buttonBase}
                 intensity={1.2}
                 shineSize={12}
                 onClick={() => scrollToSection('projects')}
@@ -139,7 +276,7 @@ const App = () => {
               </SpecularButton>
               <SpecularButton
                 size="lg"
-                lineColor="#60A5FA"
+                lineColor={c.accent}
                 baseColor="#1e293b"
                 intensity={0.8}
                 shineSize={14}
@@ -153,7 +290,7 @@ const App = () => {
         </div>
 
         <div className="absolute bottom-8 left-0 right-0 flex justify-center animate-bounce z-10">
-          <ChevronDown className="text-blue-400/50" size={28} />
+          <ChevronDown size={28} style={{ color: `${c.accent}80` }} />
         </div>
       </section>
 
@@ -162,9 +299,7 @@ const App = () => {
         <div className="max-w-6xl mx-auto">
           <FadeContent blur duration={1200}>
             <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                About Me
-              </h2>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">About Me</h2>
               <p className="text-gray-400 text-lg max-w-2xl mx-auto mt-6">
                 Who I am, what I do, and the technologies I wield
               </p>
@@ -197,7 +332,7 @@ const App = () => {
                   className="text-xl mb-6"
                   speed={3}
                   color="#6b7280"
-                  shineColor="#60A5FA"
+                  shineColor={c.accentLight}
                 />
 
                 <div className="flex flex-wrap items-center gap-4 mb-8 text-gray-400 text-sm">
@@ -223,8 +358,15 @@ const App = () => {
                     { value: 4, label: 'Years Exp.', suffix: '' },
                     { value: 35, label: 'Clients', suffix: '' }
                   ].map((stat, i) => (
-                    <div key={i} className="text-center p-4 bg-white/[0.02] backdrop-blur-sm rounded-xl border border-white/[0.05] hover:border-blue-400/40 transition-all duration-300">
-                      <div className="text-2xl md:text-3xl font-bold bg-gradient-to-br from-blue-400 to-blue-300 bg-clip-text text-transparent">
+                    <div
+                      key={i}
+                      className="text-center p-4 bg-white/[0.02] backdrop-blur-sm rounded-xl border transition-all duration-300"
+                      style={{ borderColor: '#ffffff0d' }}
+                    >
+                      <div
+                        className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent"
+                        style={{ backgroundImage: `linear-gradient(to bottom right, ${c.statFrom}, ${c.statTo})` }}
+                      >
                         <CountUp from={0} to={stat.value} separator="," direction="up" duration={2} delay={0.5} className="count-up-text" />
                         {stat.suffix}
                       </div>
@@ -234,14 +376,24 @@ const App = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <a href="https://github.com/jarebYT" className="p-3 bg-white/[0.04] backdrop-blur-sm rounded-xl border border-white/[0.06] hover:border-blue-500/40 hover:bg-blue-500/10 transition-all duration-300 group">
-                    <Github className="text-gray-300 group-hover:text-blue-400 transition-colors" size={20} />
+                  <a
+                    href="https://github.com/jarebYT"
+                    className="p-3 bg-white/[0.04] backdrop-blur-sm rounded-xl border border-white/[0.06] hover:bg-white/[0.08] transition-all duration-300 group"
+                    style={{ ':hover': {} as any }}
+                  >
+                    <Github className="text-gray-300 group-hover:text-white transition-colors" size={20} />
                   </a>
-                  <a href="https://www.linkedin.com/in/alexandre-vanneuville/" className="p-3 bg-white/[0.04] backdrop-blur-sm rounded-xl border border-white/[0.06] hover:border-blue-400/40 hover:bg-blue-500/10 transition-all duration-300 group">
-                    <Linkedin className="text-gray-300 group-hover:text-blue-400 transition-colors" size={20} />
+                  <a
+                    href="https://www.linkedin.com/in/alexandre-vanneuville/"
+                    className="p-3 bg-white/[0.04] backdrop-blur-sm rounded-xl border border-white/[0.06] hover:bg-white/[0.08] transition-all duration-300 group"
+                  >
+                    <Linkedin className="text-gray-300 group-hover:text-white transition-colors" size={20} />
                   </a>
-                  <a href="mailto:alexandre.vnvl@gmail.com" className="p-3 bg-white/[0.04] backdrop-blur-sm rounded-xl border border-white/[0.06] hover:border-blue-400/40 hover:bg-blue-500/10 transition-all duration-300 group">
-                    <Mail className="text-gray-300 group-hover:text-blue-400 transition-colors" size={20} />
+                  <a
+                    href="mailto:alexandre.vnvl@gmail.com"
+                    className="p-3 bg-white/[0.04] backdrop-blur-sm rounded-xl border border-white/[0.06] hover:bg-white/[0.08] transition-all duration-300 group"
+                  >
+                    <Mail className="text-gray-300 group-hover:text-white transition-colors" size={20} />
                   </a>
                 </div>
               </div>
@@ -255,9 +407,7 @@ const App = () => {
         <div className="max-w-7xl mx-auto">
           <FadeContent blur duration={1200}>
             <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                Featured Projects
-              </h2>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Featured Projects</h2>
               <p className="text-gray-400 text-lg max-w-2xl mx-auto mt-6">
                 A selection of projects that showcase my skills across different domains
               </p>
@@ -269,7 +419,7 @@ const App = () => {
               <FadeContent key={index} blur duration={1000} delay={index * 0.1}>
                 <SpotlightCard
                   className="h-full flex flex-col p-0"
-                  spotlightColor="rgba(37, 99, 235, 0.15)"
+                  spotlightColor={`${c.accentDark}26`}
                 >
                   <div className="relative overflow-hidden rounded-t-[1.4rem]">
                     <img
@@ -291,7 +441,7 @@ const App = () => {
                     <p className="text-gray-400 text-sm leading-relaxed mb-5 flex-1">{project.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech, techIndex) => (
-                        <span key={techIndex} className="px-2.5 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs border border-blue-500/20">
+                        <span key={techIndex} className="px-2.5 py-1 rounded-full text-xs border" style={tagStyle}>
                           {tech}
                         </span>
                       ))}
@@ -308,7 +458,7 @@ const App = () => {
                 href="https://github.com/jarebYT?tab=repositories"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 bg-white/[0.03] backdrop-blur-sm rounded-xl border border-white/[0.06] text-gray-400 hover:text-white hover:border-blue-400/40 transition-all duration-300 text-sm font-medium"
+                className="px-6 py-3 bg-white/[0.03] backdrop-blur-sm rounded-xl border border-white/[0.06] text-gray-400 hover:text-white transition-all duration-300 text-sm font-medium"
               >
                 View all repositories →
               </a>
@@ -322,9 +472,7 @@ const App = () => {
         <div className="max-w-5xl mx-auto">
           <FadeContent blur duration={1200}>
             <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                Skills & Experience
-              </h2>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Skills & Experience</h2>
               <p className="text-gray-400 text-lg max-w-2xl mx-auto mt-6">
                 Technologies I wield and the journey that brought me here
               </p>
@@ -353,13 +501,13 @@ const App = () => {
               }
             ].map((exp, i) => (
               <FadeContent key={i} blur duration={800} delay={i * 0.15}>
-                <div className="flex items-start gap-5 p-6 bg-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.05] hover:border-blue-400/30 transition-all duration-300 group">
-                  <div className="p-2.5 bg-blue-500/10 rounded-xl group-hover:bg-blue-500/25 transition-colors shrink-0">
-                    <span className="text-blue-400">{exp.icon}</span>
+                <div className="flex items-start gap-5 p-6 bg-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.05] transition-all duration-300 group">
+                  <div className="p-2.5 rounded-xl transition-colors shrink-0" style={{ backgroundColor: `${c.accentDark}15` }}>
+                    <span style={{ color: c.accent }}>{exp.icon}</span>
                   </div>
                   <div>
                     <h4 className="text-base font-semibold text-white mb-1">{exp.title}</h4>
-                    <p className="text-blue-400/80 text-sm mb-2">{exp.period}</p>
+                    <p className="text-sm mb-2" style={{ color: c.accent }}>{exp.period}</p>
                     <p className="text-gray-400 text-sm leading-relaxed">{exp.desc}</p>
                   </div>
                 </div>
@@ -376,7 +524,7 @@ const App = () => {
                 'MySQL', 'PostgreSQL', 'MongoDB', 'Docker', 'Linux', 'Git', 'GitHub',
                 'VSCode', 'Postman', 'AWS', 'Azure', 'Netlify', 'Apache'
               ].map(tech => (
-                <span key={tech}                  className="px-3.5 py-2 bg-white/[0.02] backdrop-blur-sm rounded-xl border border-white/[0.05] text-gray-400 text-sm hover:text-white hover:border-blue-400/40 hover:bg-blue-500/10 transition-all duration-200 cursor-default">
+                <span key={tech} className="px-3.5 py-2 bg-white/[0.02] backdrop-blur-sm rounded-xl border transition-all duration-200 cursor-default text-sm" style={chipStyle}>
                   {tech}
                 </span>
               ))}
@@ -387,7 +535,7 @@ const App = () => {
             <div className="mt-16 flex justify-center">
               <img
                 className="rounded-2xl border border-white/[0.05] max-w-full"
-                src="https://github-readme-activity-graph.vercel.app/graph?username=jarebYT&bg_color=0a0a0a&color=3B82F6&line=2563EB&point=60A5FA&area=true&hide_border=true"
+                src={`https://github-readme-activity-graph.vercel.app/graph?username=jarebYT&bg_color=0a0a0a&color=${c.graphColor.replace('#', '')}&line=${c.graphLine.replace('#', '')}&point=${c.graphPoint.replace('#', '')}&area=true&hide_border=true`}
                 alt="GitHub activity graph"
                 loading="lazy"
               />
@@ -400,9 +548,7 @@ const App = () => {
       <section id="contact" className="py-24 md:py-32 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <FadeContent blur duration={1200}>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              Let's Work Together
-            </h2>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Let's Work Together</h2>
             <p className="text-gray-400 text-lg mt-6 mb-16 max-w-xl mx-auto">
               I'm always open to new opportunities, collaborations, and exciting projects.
               Let's build something great.
@@ -416,8 +562,8 @@ const App = () => {
                 { icon: <Calendar size={24} />, title: 'Response', desc: 'Within 24 hours' },
                 { icon: <Award size={24} />, title: 'Availability', desc: 'Open to projects' }
               ].map((item, i) => (
-                <div key={i} className="p-6 bg-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.05] hover:border-blue-400/30 transition-all duration-300">
-                  <div className="text-blue-400 mb-3 flex justify-center">{item.icon}</div>
+                <div key={i} className="p-6 bg-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.05] transition-all duration-300">
+                  <div className="mb-3 flex justify-center" style={{ color: c.accent }}>{item.icon}</div>
                   <h3 className="text-white font-semibold mb-1 text-sm">{item.title}</h3>
                   <p className="text-gray-400 text-sm">{item.desc}</p>
                 </div>
@@ -429,8 +575,8 @@ const App = () => {
             <div className="flex flex-wrap gap-4 justify-center">
               <SpecularButton
                 size="md"
-                lineColor="#3B82F6"
-                baseColor="#1a2744"
+                lineColor={c.accentDark}
+                baseColor={c.buttonBase}
                 intensity={1}
                 onClick={() => window.open('https://github.com/jarebYT', '_blank')}
               >
@@ -438,7 +584,7 @@ const App = () => {
               </SpecularButton>
               <SpecularButton
                 size="md"
-                lineColor="#60A5FA"
+                lineColor={c.accent}
                 baseColor="#1e293b"
                 intensity={0.8}
                 onClick={() => window.open('https://www.linkedin.com/in/alexandre-vanneuville/', '_blank')}
@@ -447,7 +593,7 @@ const App = () => {
               </SpecularButton>
               <SpecularButton
                 size="md"
-                lineColor="#93C5FD"
+                lineColor={c.accentLight}
                 baseColor="#1e293b"
                 intensity={0.7}
                 onClick={() => window.location.href = 'mailto:alexandre.vnvl@gmail.com'}
@@ -460,7 +606,7 @@ const App = () => {
       </section>
 
       {/* ─── FOOTER ────────────────────────────────────────── */}
-      <footer className="py-10 px-4 border-t border-white/[0.04]">
+      <footer className="relative z-10 py-10 px-4 border-t border-white/[0.04]">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-500 text-sm">
             © 2026 Alexandre Vanneuville. Built with React, Tailwind CSS & React Bits.
