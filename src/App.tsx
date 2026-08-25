@@ -535,7 +535,7 @@ const App = () => {
             <div className="mt-16 flex justify-center">
               <img
                 className="rounded-2xl border border-white/[0.05] max-w-full"
-                src={`https://github-readme-activity-graph.vercel.app/graph?username=jarebYT&bg_color=0a0a0a&color=${c.graphColor.replace('#', '')}&line=${c.graphLine.replace('#', '')}&point=${c.graphPoint.replace('#', '')}&area=true&hide_border=true`}
+                src={`https://github-readme-activity-graph-three-rho.vercel.app/graph?username=jarebYT&bg_color=0a0a0a&color=${c.graphColor.replace('#', '')}&line=${c.graphLine.replace('#', '')}&point=${c.graphPoint.replace('#', '')}&area=true&hide_border=true`}
                 alt="GitHub activity graph"
                 loading="lazy"
               />
