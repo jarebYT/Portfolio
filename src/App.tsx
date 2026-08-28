@@ -185,7 +185,7 @@ const App = () => {
       title: 'Fromage Clicker',
       description: 'An incremental clicker game where you collect cheese and unlock upgrades, built exclusively in JavaScript, CSS3 and HTML5.',
       tech: ['JavaScript', 'HTML5', 'CSS3', 'LocalStorage'],
-      image: 'https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/fromage-clicker.jpg',
+      image: 'https://github.com/jarebYT/Portfolio/blob/develop/img/fromage-clicker.jpg?raw=true',
       github: 'https://github.com/jarebYT/Fromage-Clicker',
       live: 'https://fromage.alexandrevnvl.fr/'
     }
