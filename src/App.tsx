@@ -155,7 +155,7 @@ const App = () => {
       tech: ['React', 'Node.js', 'PostgreSQL', 'LocationIQ API'],
       image: 'https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/orbite.png',
       github: 'https://github.com/jarebYT/Orbite',
-      live: 'https://github.com/jarebYT/Orbite'
+      live: 'http://38.22.104.17:8082/'
     },
     {
       title: 'Ascendance',
@@ -182,12 +182,12 @@ const App = () => {
       live: 'https://github.com/jarebYT/timecapsule'
     },
     {
-      title: 'More soon...',
-      description: 'Always building. Always learning. New projects are in the pipeline — stay tuned.',
-      tech: ['...'],
-      image: 'https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/moresoon.jpg',
-      github: 'https://github.com/jarebYT',
-      live: 'https://github.com/jarebYT'
+      title: 'Fromage Clicker',
+      description: 'An incremental clicker game where you collect cheese and unlock upgrades, built exclusively in JavaScript, CSS3 and HTML5.',
+      tech: ['JavaScript', 'HTML5', 'CSS3', 'LocalStorage'],
+      image: 'https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/fromage-clicker.jpg',
+      github: 'https://github.com/jarebYT/Fromage-Clicker',
+      live: 'https://fromage.alexandrevnvl.fr/'
     }
   ];
 
@@ -379,7 +379,6 @@ const App = () => {
                   <a
                     href="https://github.com/jarebYT"
                     className="p-3 bg-white/[0.04] backdrop-blur-sm rounded-xl border border-white/[0.06] hover:bg-white/[0.08] transition-all duration-300 group"
-                    style={{ ':hover': {} as any }}
                   >
                     <Github className="text-gray-300 group-hover:text-white transition-colors" size={20} />
                   </a>
@@ -491,13 +490,13 @@ const App = () => {
                 icon: <Cpu size={18} />,
                 title: 'IT Technical Support Level 2',
                 period: 'Situaction · 2026 – Present',
-                desc: 'Advanced L2 support for large-scale fleet telematics. Managing hardware integration, complex troubleshooting, and operational workflows.'
+                desc: 'Advanced L2 support for large-scale fleet telematics. Managing complex IoT hardware integration and deployment, critical troubleshooting, and optimized operational workflows.'
               },
               {
                 icon: <Award size={18} />,
-                title: 'IT Technical Support',
-                period: 'Bump Géoservices · 2024 – 2026',
-                desc: 'L1 & L2 support, IoT device deployment for fleet tracking, and structured training programs to drive client autonomy.'
+                title: 'IT Technical Support Level 1 & 2',
+                period: 'Bump Geoservices · 2024 – 2026',
+                desc: 'L1 & L2 support for large-scale fleet telematics. Managing IoT hardware deployment, technical troubleshooting, and client training programs.'
               }
             ].map((exp, i) => (
               <FadeContent key={i} blur duration={800} delay={i * 0.15}>
@@ -519,10 +518,11 @@ const App = () => {
             <h4 className="text-lg font-semibold text-white mb-6 text-center">Technologies I Work With</h4>
             <div className="flex flex-wrap gap-2.5 justify-center">
               {[
-                'C', 'C++', 'Python', 'Java', 'JavaScript', 'TypeScript', 'PHP', 'HTML5', 'CSS3', 'SQL',
-                'React', 'Next.js', 'Node.js', 'Express.js', 'TailwindCSS', 'Bootstrap',
+                'C', 'C++', 'C#', 'Assembly', 'Python', 'Java', 'JavaScript', 'TypeScript', 'PHP', 'HTML', 'CSS', 'SQL',
+                'React', 'Next.js', 'Node.js', 'Express.js', 'TailwindCSS',
+                'Unity', 'Blender', 'Photoshop',
                 'MySQL', 'PostgreSQL', 'MongoDB', 'Docker', 'Linux', 'Git', 'GitHub',
-                'VSCode', 'Postman', 'AWS', 'Azure', 'Netlify', 'Apache'
+                'IoT', 'GPS/GNSS', 'TCP/IP', 'Wireshark', 'Nmap', 'OWASP', 'Docker', 'AWS', 'Azure', 'Active Directory', "And more..."
               ].map(tech => (
                 <span key={tech} className="px-3.5 py-2 bg-white/[0.02] backdrop-blur-sm rounded-xl border transition-all duration-200 cursor-default text-sm" style={chipStyle}>
                   {tech}
@@ -606,10 +606,10 @@ const App = () => {
       </section>
 
       {/* ─── FOOTER ────────────────────────────────────────── */}
-      <footer className="relative z-10 py-10 px-4 border-t border-white/[0.04]">
+      <footer className="relative z-10 py-10 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-500 text-sm">
-            © 2026 Alexandre Vanneuville. Built with React, Tailwind CSS & React Bits.
+            © 2026 Alexandre Vanneuville. Built with React& Tailwind CSS. <a href="https://reactbits.dev/" target="_blank" rel="noopener noreferrer" style={{ color: c.accentLight }}>Components by React Bits.</a>
           </p>
         </div>
       </footer>
