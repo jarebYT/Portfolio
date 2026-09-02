@@ -158,12 +158,12 @@ const App = () => {
       live: 'http://38.22.104.17:8082/'
     },
     {
-      title: 'Ascendance',
-      description: '2D boss-rush platformer with unique combat mechanics, hand-crafted pixel art, and challenging AI.',
-      tech: ['Unity', 'C#', 'Aseprite', 'Photoshop'],
-      image: 'https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/ascendance.png',
-      github: 'https://github.com/jarebYT/Ascendance',
-      live: 'https://github.com/jarebYT/Ascendance/releases/tag/release'
+      title: 'WinUtils',
+      description: 'A modern and simple Windows utilities toolkit for system repair, optimization, and security.',
+      tech: ['Python', 'WMI', 'CustomTkinter', 'PSUtils'],
+      image: 'https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/winutils.png',
+      github: 'https://github.com/jarebYT/WinUtils',
+      live: 'https://github.com/jarebYT/WinUtils/releases/tag/Release'
     },
     {
       title: 'nullOS',
@@ -174,12 +174,12 @@ const App = () => {
       live: 'https://github.com/jarebYT/nullOS'
     },
     {
-      title: 'TimeCapsule',
-      description: 'Encrypted digital time capsules. Write messages to your future self with AES-256 encryption.',
-      tech: ['React', 'Express', 'MongoDB', 'AES Encryption'],
-      image: 'https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/timecapsule.png',
-      github: 'https://github.com/jarebYT/timecapsule',
-      live: 'https://github.com/jarebYT/timecapsule'
+      title: 'Ascendance',
+      description: '2D boss-rush platformer with unique combat mechanics, hand-crafted pixel art, and challenging AI.',
+      tech: ['Unity', 'C#', 'Aseprite', 'Photoshop'],
+      image: 'https://raw.githubusercontent.com/jarebYT/Portfolio/refs/heads/main/img/ascendance.png',
+      github: 'https://github.com/jarebYT/Ascendance',
+      live: 'https://github.com/jarebYT/Ascendance/releases/tag/release'
     },
     {
       title: 'Fromage Clicker',
